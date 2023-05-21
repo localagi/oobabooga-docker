@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  text-generation-webui:
+    volumes:
+      - ./characters:/app/characters
+      - ./extensions:/app/extensions
+      - ./loras:/app/loras
+      - ./presets:/app/presets
+      - ./prompts:/app/prompts
+      - ./softprompts:/app/softprompts
+      - ./training:/app/training

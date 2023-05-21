@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  text-generation-webui:
+    image: localagi/oobabooga-cc-${COMPUTE_VERSION:-8.6ptx}:main
+    environment:
+      CLI_ARGS: "--api --listen --chat --auto-devices --model-dir=/models --model OpenAssistant-SFT-7-Llama-30B-GPTQ --wbits 4 --model_type llama"
+    ports:
+      - "7860:7860" # webui
+      - "5000:5000" # api
+      - "5005:5005" # streaming api
+    stdin_open: true
+    tty: true
+    volumes:
+      - ${LOCAL_MODEL_DIR:-../models}:/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
