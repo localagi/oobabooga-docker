@@ -8,7 +8,7 @@ Easy setup. Compatible. Tweakable. Scaleable.
 
 
 *TODO* support different `GPTQ-for-Llama`'s
-
+*TODO* fixp for compose mounts / dev env
 
 #### Naming scheme
 

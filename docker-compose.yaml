@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   text-generation-webui:
-    image: localagi/oobabooga-cc-${COMPUTE_VERSION:-8.6ptx}:main
+    image: localagi/oobabooga:main-cc-${COMPUTE_VERSION:-8.6ptx}
     environment:
       CLI_ARGS: "--api --listen --chat --auto-devices --model-dir=/models --model OpenAssistant-SFT-7-Llama-30B-GPTQ --wbits 4 --model_type llama"
     ports:
