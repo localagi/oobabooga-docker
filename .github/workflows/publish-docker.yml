@@ -16,7 +16,7 @@ jobs:
     with:
       pre-free-disk-space: true
       registry-repo-name: oobabooga
-      context-repository: https://github.com/oobabooga/text-generation-webui.git
+      context-repository: oobabooga/text-generation-webui
       context-repository-ref: ${{ github.ref_name }}
       dockerfile: https://raw.githubusercontent.com/oobabooga/text-generation-webui/${{ github.ref }}/docker/Dockerfile
       tags: |
