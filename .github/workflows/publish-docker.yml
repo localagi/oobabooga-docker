@@ -16,13 +16,13 @@ jobs:
     with:
       pre-free-disk-space: true
       registry-repo-name: oobabooga
+      context-repository: https://github.com/oobabooga/text-generation-webui.git
       context-repository-ref: ${{ github.ref_name }}
       dockerfile: https://raw.githubusercontent.com/oobabooga/text-generation-webui/${{ github.ref }}/docker/Dockerfile
-      context: https://github.com/oobabooga/text-generation-webui.git#${{ github.ref }}
       tags: |
         type=schedule
         type=ref,event=branch
-        type=semver,pattern={{version}}
+        type=raw,value=${{ github.ref_name }}
       flavor: |
         suffix=-cc-${{ matrix.compute_version_id || matrix.compute_version }}
       build-args: |
