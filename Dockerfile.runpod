@@ -1,0 +1,7 @@
+ARG FROM_IMAGE
+FROM ${FROM_IMAGE}
+
+COPY runpod.sh .
+RUN chmod +x runpod.sh
+
+CMD ["runpod.sh"]

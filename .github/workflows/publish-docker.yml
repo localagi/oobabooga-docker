@@ -39,3 +39,30 @@ jobs:
         include:
           - compute_version_id: 8.6PTX #fix invalid docker name
             compute_version: "8.6+PTX"
+            
+            
+  docker-build-oobabooga-runpod:
+    uses: localagi/ai-dedicated-workflows/.github/workflows/operation-docker-build-publish.yml@v3
+    with:
+      pre-free-disk-space: true
+      registry-repo-name: oobabooga
+      dockerfile: Dockerfile.headless
+      tags: |
+        type=schedule
+        type=ref,event=branch
+        type=raw,value=${{ github.ref_name }}
+      flavor: |
+        suffix=-cc-${{ matrix.compute_version_id || matrix.compute_version }}-runpod
+      build-args: |
+        FROM_IMAGE=localagi/oobabooga:main-cc-${{ matrix.compute_version_id || matrix.compute_version }}
+    secrets: inherit
+    strategy:
+      fail-fast: false
+      matrix:
+        # see https://pytorch.org/docs/stable/cpp_extension.html
+        compute_version: ["6.1", "8.6+PTX"]
+
+        include:
+          - compute_version_id: 8.6PTX #fix invalid docker name
+            compute_version: "8.6+PTX"
+    needs: docker-build-oobabooga
