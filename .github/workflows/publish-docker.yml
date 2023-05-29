@@ -34,7 +34,7 @@ jobs:
       fail-fast: false
       matrix:
         # see https://pytorch.org/docs/stable/cpp_extension.html
-        compute_version: ["6.1", "8.6+PTX"]
+        compute_version: ["6.1", "8.0", "8.6+PTX"]
 
         include:
           - compute_version_id: 8.6PTX #fix invalid docker name
@@ -60,7 +60,7 @@ jobs:
       fail-fast: false
       matrix:
         # see https://pytorch.org/docs/stable/cpp_extension.html
-        compute_version: ["6.1", "8.6+PTX"]
+        compute_version: ["6.1", "8.0", "8.6+PTX"]
 
         include:
           - compute_version_id: 8.6PTX #fix invalid docker name
