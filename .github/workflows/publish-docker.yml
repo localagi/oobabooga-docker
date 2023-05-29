@@ -46,7 +46,7 @@ jobs:
     with:
       pre-free-disk-space: true
       registry-repo-name: oobabooga
-      dockerfile: Dockerfile.headless
+      dockerfile: Dockerfile.runpod
       tags: |
         type=schedule
         type=ref,event=branch
